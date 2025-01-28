@@ -19,7 +19,7 @@ interface VendorsContextType {
   isSuccess: boolean | null;
   openAlert: boolean;
   setOpenAlert: (open: boolean) => void;
-  downloadVendorsExcel: () => Promise<Blob>;
+  downloadVendorsExcel: () => Promise<Blob | null>;
 }
 
 const VendorsContext = createContext<VendorsContextType | undefined>(undefined);

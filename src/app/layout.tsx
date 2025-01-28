@@ -8,7 +8,7 @@ import GAS_CUSTOMERS from "@/core/api/gas_customers.api";
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [customersWithNegativeBenefit, setCustomersWithNegativeBenefit] =
     useState<number>();
-  const [error, setError] = useState<any>(null);
+  const [_, setError] = useState<any>(null);
   const getCustomersWithNegativeProfit = async () => {
     try {
       const benefit = await GAS_CUSTOMERS.getCustomersWithNegativeBenefit();

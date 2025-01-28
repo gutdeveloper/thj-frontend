@@ -1,7 +1,6 @@
 import { customerTableColumns } from "@/app/customers/columns";
 import { DataTable } from "@/app/data-table";
 import { useCustomersContext } from "@/core/context/CustomerContext";
-import { Customer } from "@/core/interfaces/customer";
 import { useEffect, useState } from "react";
 import {
   AlertDialog,
@@ -23,7 +22,7 @@ import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/spinner";
 import CustomerForm from "@/app/customers/form";
 import { formCustomerSchema } from "@/schemas/forms/customer.schema";
-import { set, z } from "zod";
+import { z } from "zod";
 import { useToast } from "@/hooks/use-toast";
 import { ToastAction } from "@/components/ui/toast";
 import useDownloadFiles from "@/hooks/use-download-files";
@@ -60,7 +59,9 @@ function Customers() {
     number | null
   >(null);
   const [isEditCustomerForm, setIsEditCustomerForm] = useState(false);
-  const [selectedCustomer, setSelectedCustomer] = useState<Customer>();
+  const [selectedCustomer, setSelectedCustomer] = useState<z.infer<
+    typeof formCustomerSchema
+  > | null>(null);
   const [openDialog, setOpenDialog] = useState(false);
   const [openDialogGasVendor, setOpenDialogGasVendor] = useState(false);
   const [gasCustomerLoaded, setGasCustomerLoaded] =
@@ -241,7 +242,7 @@ function Customers() {
                 initialValues={
                   isEditCustomerForm && currentCustomerId
                     ? selectedCustomer
-                    : undefined
+                    : null
                 }
                 onSubmit={
                   isEditCustomerForm && currentCustomerId

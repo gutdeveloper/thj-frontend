@@ -8,7 +8,6 @@ import Customers from "./pages/Customers";
 import Vendors from "./pages/Vendors";
 import { VendorsProvider } from "./core/context/VendorContext";
 import { CustomersProvider } from "./core/context/CustomerContext";
-import CustomersWithNegativeProfit from "./pages/CustomersWithNegativeProfit";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

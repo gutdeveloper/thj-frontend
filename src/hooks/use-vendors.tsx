@@ -95,6 +95,7 @@ export default function useVendors() {
       return excel;
     } catch (err) {
       setError(err);
+      return null;
     }
   };
 
