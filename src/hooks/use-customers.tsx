@@ -27,8 +27,10 @@ export default function useCustomers() {
     try {
       const customers = await CUSTOMERS_API.getCustomers();
       setCustomers(customers);
+      return customers;
     } catch (err) {
       setError(err);
+      return [];
     }
   };
 
@@ -38,6 +40,7 @@ export default function useCustomers() {
       setCustomers(customers);
     } catch (err) {
       setError(err);
+      return null;
     }
   };
 
@@ -47,6 +50,7 @@ export default function useCustomers() {
       return excel;
     } catch (err) {
       setError(err);
+      return null;
     }
   };
 
@@ -61,9 +65,11 @@ export default function useCustomers() {
       if (customer.status === 201) {
         setIsSuccessCustomer(true);
       }
+      return customer.data;
     } catch (err) {
       setError(err);
       setIsSuccessCustomer(false);
+      return null;
     } finally {
       setLoading(false);
     }
@@ -76,6 +82,7 @@ export default function useCustomers() {
       return customer;
     } catch (err) {
       setError(err);
+      return null;
     }
   };
 
@@ -123,6 +130,7 @@ export default function useCustomers() {
       return gasCustomer;
     } catch (error) {
       setError(error);
+      return null;
     } finally {
       setLoading(false);
     }
@@ -146,10 +154,11 @@ export default function useCustomers() {
       if (gasCustomer.status === 201) {
         setIsSuccessGasCustomer(true);
       }
-      return gasCustomer;
+      return gasCustomer.data;
     } catch (error) {
       setError(error);
       setIsSuccessGasCustomer(false);
+      return null;
     } finally {
       setLoading(false);
     }
@@ -176,6 +185,7 @@ export default function useCustomers() {
     } catch (error) {
       setError(error);
       setIsSuccessGasCustomerUpdate(false);
+      return null;
     } finally {
       setLoading(false);
     }

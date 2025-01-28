@@ -1,8 +1,6 @@
 import httpService from "@/lib/httpService";
 import API_CONSTANTS from "../constants/api.constants";
 import { GasCustomer } from "../interfaces/gas_customer";
-import { formGasCustomerSchema } from "@/schemas/forms/gas-vendor.schema";
-import { z } from "zod";
 
 const {
     gas_customers

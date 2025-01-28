@@ -1,13 +1,3 @@
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-
 function Dashboard() {
   return (
     <div className="container mx-auto px-4">

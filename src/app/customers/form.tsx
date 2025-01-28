@@ -18,7 +18,7 @@ import { Spinner } from "@/components/spinner";
 type CustomerFormProps = {
   onSubmit: (values: z.infer<typeof formCustomerSchema>) => void;
   loading: boolean;
-  initialValues?: z.infer<typeof formCustomerSchema>;
+  initialValues: z.infer<typeof formCustomerSchema> | null;
 };
 
 export default function CustomerForm({
