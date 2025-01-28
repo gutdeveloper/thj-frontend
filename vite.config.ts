@@ -3,6 +3,10 @@ import react from "@vitejs/plugin-react"
 import { defineConfig } from "vite"
 
 export default defineConfig({
+  publicDir: 'public', // Carpeta pública para copiar recursos estáticos
+  build: {
+    outDir: 'dist', // Carpeta de salida
+  },
   plugins: [react()],
   resolve: {
     alias: {
